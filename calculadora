@@ -1,0 +1,104 @@
+#include <stdio.h>
+#include <locale.h>
+#include <string.h>
+#include <stdlib.h>
+
+int main()
+{
+    setlocale(LC_ALL, "Portuguese");
+    menu();
+}
+
+void menu(){
+    
+    int opcao, repetir = 1;
+
+    while(repetir == 1){
+        printf("\n\n\t\tBem vindo\n\nQual operação você deseja realizar?\n\n");
+        printf("1- Somar\n");
+        printf("2- Diminuir\n");
+        printf("3- Multiplicar\n");
+        printf("4- Dividir\n");
+        printf("5- Sair\n\n");
+        printf("Opção:");
+        scanf("%d", &opcao);
+        
+        switch(opcao){
+            case 1:
+                somar();
+            break;
+            case 2:
+                subtrair();
+            break;
+            case 3:
+                Multiplicar();
+            break;
+            case 4:
+                dividir();         
+            break;
+            case 5:
+                printf("Sair");
+                repetir = 0;
+            break;
+            
+            default: printf("Opção invalida");
+        }
+    }
+}
+
+int somar(){
+    int num1, num2, soma;
+    printf("\n\nInforme um número inteiro para realizar a soma:");
+    scanf("%d", &num1);
+    printf("Informe um segundo número inteiro para realizar a soma:");
+    scanf("%d", &num2);
+    soma = num1 + num2;
+    printf("%d + %d = %d\n\n", num1, num2, soma);
+}
+
+int subtrair(){
+    int num1, num2, subtracao;
+    printf("\n\nInforme um número inteiro para realizar a subtrair:");
+    scanf("%d", &num1);
+    printf("Informe um segundo número inteiro para realizar a subtrair:");
+    scanf("%d", &num2);
+    if(num2 < 0){
+        subtracao = num1 + num2;
+        printf("%d + %d = %d\n\n", num1, num2, subtracao);
+    }
+    else{
+        subtracao = num1 - num2;
+        printf("%d - %d = %d\n\n", num1, num2, subtracao);
+    }        
+}
+
+int Multiplicar(){
+    int num1, num2, multiplicacao;
+    printf("\n\nInforme um número inteiro para realizar a multiplicação:");
+    scanf("%d", &num1);
+    printf("Informe um segundo número inteiro  para realizar a multiplicação:");
+    scanf("%d", &num2);
+    if(num1 == 0 || num2 == 0){
+        printf("%d * %d = 0\n\n", num1, num2);
+    }
+    else{
+        multiplicacao = num1 * num2;
+        printf("%d * %d = %d\n\n", num1, num2, multiplicacao);
+    }
+}
+
+int dividir(){
+    float divisao, num1, num2;
+    printf("\n\nInforme um número inteiro para realizar a dividir:");
+    scanf("%d", &num1);
+    printf("Informe um segundo número inteiro para realizar a dividir:");
+    scanf("%d", &num2);
+    if(num1 < num2){
+        divisao = num2 / num1;
+        printf("%f + %f = %f\n\n", num1, num2, divisao);
+    }
+    else{
+        divisao = num1 / num2;
+        printf("%f + %f = %f\n\n", num1, num2, divisao);
+    }
+}
